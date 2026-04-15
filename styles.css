@@ -345,6 +345,75 @@ body {
   text-align: center;
 }
 
+
+.projects-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.projects-slider {
+  display: flex;
+  gap: 24px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.slide-card {
+  min-width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-content {
+  padding: 26px;
+}
+
+.slider-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.slider-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 700px) {
+  .projects-slider-wrapper {
+    gap: 10px;
+  }
+
+  .slider-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+
+  .project-image {
+    height: 210px;
+  }
+}
+
 @media (max-width: 980px) {
   .hero,
   .projects-grid,

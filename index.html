@@ -118,6 +118,7 @@
             <li>Python</li>
             <li>C#</li>
             <li>React</li>
+            <li>SQL</li>
             <li>FastAPI</li>
             <li>PostgreSQL</li>
             <li>HTML / CSS / JavaScript</li>
@@ -137,15 +138,20 @@
     </section>
 
     <section id="projects" class="section container">
-      <div class="section-heading">
-        <p class="section-tag">Work Samples</p>
-        <h2>Featured Projects</h2>
-      </div>
+  <div class="section-heading">
+    <p class="section-tag">Work Samples</p>
+    <h2>Featured Projects</h2>
+  </div>
 
-      <div class="projects-grid">
-        <article class="project-card">
+  <div class="projects-slider-wrapper">
+    <button class="slider-btn prev" onclick="slideProjects(-1)">&#10094;</button>
+
+    <div class="projects-slider" id="projectsSlider">
+      <article class="project-card slide-card">
+        <img src="images/p1.png" alt="Campus Events Dashboard Screenshot" class="project-image">
+        <div class="project-content">
           <div class="project-number">01</div>
-          <h3>Campus Events Dashboard</h3>
+          <h3>Campus Events Management System</h3>
           <p>
             A full-stack event management platform built with React, FastAPI, and PostgreSQL.
             Includes authentication, role-based access, event creation, and dynamic dashboard data.
@@ -155,9 +161,12 @@
             <span>FastAPI</span>
             <span>PostgreSQL</span>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="project-card">
+      <article class="project-card slide-card">
+        <img src="images/p2.png" alt="AWS To-Do App Screenshot" class="project-image">
+        <div class="project-content">
           <div class="project-number">02</div>
           <h3>AWS To-Do App</h3>
           <p>
@@ -169,9 +178,12 @@
             <span>API</span>
             <span>Python</span>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="project-card">
+      <article class="project-card slide-card">
+        <img src="images/p3.png" alt="Portfolio Website Screenshot" class="project-image">
+        <div class="project-content">
           <div class="project-number">03</div>
           <h3>Portfolio Website</h3>
           <p>
@@ -183,9 +195,13 @@
             <span>CSS</span>
             <span>GitHub Pages</span>
           </div>
-        </article>
-      </div>
-    </section>
+        </div>
+      </article>
+    </div>
+
+    <button class="slider-btn next" onclick="slideProjects(1)">&#10095;</button>
+  </div>
+</section>
 
     <section id="education" class="section container">
       <div class="section-heading">
@@ -197,19 +213,34 @@
         <div class="glass-card">
           <h3>Education</h3>
           <p><strong>Computer Programming & Analysis</strong></p>
-          <p>George Brown College</p>
-        </div>
-
-        <div class="glass-card">
-          <h3>Additional Materials</h3>
-          <p>
-            This section can include certificates, diplomas, unofficial transcripts, academic awards,
-            and letters of recommendation where available.
-          </p>
+          <p>George Brown College</p><br>
+          <h3>Education</h3>
+          <p><strong>OSSD</strong></p>
+          <p>George Harvey Collegiate Institute</p>
         </div>
       </div>
     </section>
   </main>
+    <script>
+    const slider = document.getElementById("projectsSlider");
+    let currentSlide = 0;
+
+    function slideProjects(direction) {
+        const cards = document.querySelectorAll(".slide-card");
+        const totalSlides = cards.length;
+
+        currentSlide += direction;
+
+        if (currentSlide < 0) currentSlide = totalSlides - 1;
+        if (currentSlide >= totalSlides) currentSlide = 0;
+
+        const cardWidth = cards[0].offsetWidth + 24;
+        slider.scrollTo({
+        left: currentSlide * cardWidth,
+        behavior: "smooth"
+        });
+    }
+    </script>
 
   <footer class="footer container">
     <p>© 2026 Mukhtar Ali. Built with GitHub Pages.</p>
